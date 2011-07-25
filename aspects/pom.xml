@@ -21,45 +21,55 @@
   
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>aspects</artifactId>
-    <groupId>org.syncservice</groupId>
-    <version>1.0</version>
-    <packaging>jar</packaging>
-    <name>Directory Synchronization Engine Aspects</name>
-    <description>Directory Synchronization Engine Aspects</description>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>aspects</artifactId>
+	<packaging>jar</packaging>
+	<name>Directory Synchronization Engine Aspects</name>
+	<description>Directory Synchronization Engine Aspects</description>
 
-    <parent>
-	<artifactId>DSE</artifactId>
-	<groupId>org.syncservice</groupId>
-	<version>1.0</version>
-	<relativePath>../pom.xml</relativePath>
-    </parent>
+	<parent>
+		<artifactId>DSE</artifactId>
+		<groupId>org.syncservice</groupId>
+		<version>1.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>aspectj-maven-plugin</artifactId>
-                <version>1.3.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>  <!-- use this goal to weave all your main classes -->
-                            <goal>test-compile</goal> <!-- use this goal to weave all your test classes -->
-                        </goals>
-                    </execution>
-               </executions>
-	    </plugin>
-        </plugins>
-    </build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+				<version>1.3.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>  <!-- use this goal to weave all your main classes -->
+							<goal>test-compile</goal> <!-- use this goal to weave all your test classes -->
+						</goals>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+							<outxml>true</outxml>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<outxml>true</outxml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>1.6.2</version>
-        </dependency>
-    </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+	</dependencies>
 </project>

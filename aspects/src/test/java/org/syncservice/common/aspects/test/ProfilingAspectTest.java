@@ -13,11 +13,11 @@
   
    The Original Code is the Directory Synchronization Engine(DSE).
   
-   The Initial Developer of the Original Code is IronKey, Inc.
+   The Initial Developer of the Original Code is Shirish Rai.
    Portions created by the Initial Developer are Copyright (C) 2011
    the Initial Developer. All Rights Reserved.
   
-   Contributor(s): Shirish Rai
+   Contributor(s):
  */
 package org.syncservice.common.aspects.test;
 

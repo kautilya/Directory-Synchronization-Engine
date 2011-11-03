@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.syncservice.org/Configuration" 
+xmlns:tns="http://www.syncservice.org/Configuration" 
+elementFormDefault="qualified">
+
+  <element name="Configuration">
+  </element>
+
+</schema>

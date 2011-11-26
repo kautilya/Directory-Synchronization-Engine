@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
     Version: MPL 1.1 
 
@@ -16,8 +17,7 @@
 
 	Contributor(s): Shirish Rai 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <artifactId>DSE</artifactId>
   <groupId>org.syncservice</groupId>
@@ -29,6 +29,7 @@
   <modules>
     <module>aspects</module>
     <module>common</module>
+    <module>agent</module>
   </modules>
 
   <properties>
@@ -59,7 +60,7 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <execute />
+                    <execute/>
                   </action>
                 </pluginExecution>
               </pluginExecutions>
@@ -76,7 +77,7 @@
           <source>1.6</source>
           <target>1.6</target>
           <compilerArguments>
-            <Xlint />
+            <Xlint/>
           </compilerArguments>
         </configuration>
       </plugin>

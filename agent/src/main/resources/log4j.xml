@@ -28,6 +28,16 @@
         </layout>
     </appender>
 
+  <appender name="fileAppender" class="org.apache.log4j.RollingFileAppender"> 
+    <param name="file" value="logs/agent.log"/>
+    <param name="MaxFileSize" value="10MB"/>
+    <param name="MaxBackupIndex" value="1"/>
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d{ABSOLUTE} %p %t %c - %m%n"/> 
+    </layout> 
+  </appender> 
+
+
     <logger name="org.syncservice">
         <level value="trace" />
     </logger>

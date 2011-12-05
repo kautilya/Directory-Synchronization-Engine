@@ -1,7 +1,51 @@
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<!--
+    Version: MPL 1.1
+  
+   The contents of this file are subject to the Mozilla Public License Version
+   1.1 (the "License"); you may not use this file except in compliance with
+    the License. You may obtain a copy of the License at
+    http://www.mozilla.org/MPL/
+  
+   Software distributed under the License is distributed on an "AS IS" basis,
+   WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   for the specific language governing rights and limitations under the
+   License.
+  
+   The Original Code is the Directory Synchronization Engine(DSE).
+  
+   The Initial Developer of the Original Code is IronKey, Inc.
+   Portions created by the Initial Developer are Copyright (C) 2011
+   the Initial Developer. All Rights Reserved.
+  
+   Contributor(s): Shirish Rai
+  
+-->
+
 
 <web-app>
   <display-name>Directory Synchronization Agent</display-name>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:application-context.xml</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <servlet>
+    <servlet-name>agent</servlet-name>
+    <servlet-class>
+      org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>agent</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
 </web-app>

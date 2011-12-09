@@ -2,6 +2,15 @@
 
 source ../properties.sh
 
+function check_exit()
+{
+  if [ $? -ne $1 ]
+  then
+    echo "$2"
+    exit 1
+  fi
+}
+
 if [ -e $TOMCAT_INSTALL_DIR ]
 then
   $TOMCAT_INSTALL_DIR/apache-tomcat-$TOMCAT_VERSION/bin/shutdown.sh
@@ -11,18 +20,14 @@ fi
 mkdir $TOMCAT_INSTALL_DIR
 tar -x -v -f $TOMCAT_PKG -z -C $TOMCAT_INSTALL_DIR
 
-if [ $? -ne 0 ]
-then
-  echo "tar failed"
-  exit 1
-fi
+check_exit 0 "Tar Failed"
 
 cp $SOURCE_DIR/scripts/tomcat-users.xml $TOMCAT_INSTALL_DIR/apache-tomcat-$TOMCAT_VERSION/conf/tomcat-users.xml
 
-if [ $? -ne 0 ]
-then
-  echo "cp tomcat users failed"
-  exit 1
-fi
+check_exit 0 "cp Failed"
+
+patch -p0 $TOMCAT_INSTALL_DIR/apache-tomcat-$TOMCAT_VERSION/bin/catalina.sh $SOURCE_DIR/scripts/tc-$TOMCAT_VERSION.catalina.sh.patch
+
+check_exit 0 "patch Failed"
 
 $TOMCAT_INSTALL_DIR/apache-tomcat-$TOMCAT_VERSION/bin/startup.sh
